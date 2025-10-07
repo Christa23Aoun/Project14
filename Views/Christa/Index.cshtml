@@ -1,0 +1,64 @@
+﻿@{
+    ViewData["Title"] = "Christa";
+}
+
+<h2>📊 Dashboard</h2>
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card text-white bg-primary mb-3">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Courses</h5>
+                    <p class="card-text display-6">@Model.CoursesCount</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card text-white bg-success mb-3">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Departments</h5>
+                    <p class="card-text display-6">@Model.DepartmentsCount</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card text-white bg-warning mb-3">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Semesters</h5>
+                    <p class="card-text display-6">@Model.SemestersCount</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card text-white bg-danger mb-3">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Academic Years</h5>
+                    <p class="card-text display-6">@Model.AcademicYearsCount</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h4 class="mt-5">🟩 Active Courses</h4>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Course Code</th>
+                <th>Course Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var course in Model.ActiveCourses)
+            {
+                <tr>
+                    <td>@course.CourseCode</td>
+                    <td>@course.CourseName</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

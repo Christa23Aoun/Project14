@@ -1,0 +1,30 @@
+﻿@model Project14.Models.AcademicYear
+
+@{
+    ViewData["Title"] = "Academic Year Details";
+}
+
+<h1>Academic Year Details</h1>
+
+<div>
+    <h4>AcademicYear</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">Name</dt>
+        <dd class="col-sm-10">@Model.Name</dd>
+
+        <dt class="col-sm-2">StartDate</dt>
+        <dd class="col-sm-10">@Model.StartDate.ToString("yyyy-MM-dd")</dd>
+
+        <dt class="col-sm-2">EndDate</dt>
+        <dd class="col-sm-10">@Model.EndDate.ToString("yyyy-MM-dd")</dd>
+
+        <dt class="col-sm-2">CreatedAt</dt>
+        <dd class="col-sm-10">@Model.CreatedAt.ToString("yyyy-MM-dd")</dd>
+    </dl>
+</div>
+
+<p>
+    <a asp-action="Edit" asp-route-id="@Model.AcademicYearID" class="btn btn-primary">Edit</a>
+    <a asp-action="Index" class="btn btn-secondary">Back to list</a>
+</p>

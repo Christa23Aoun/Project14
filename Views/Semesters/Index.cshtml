@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Semester>
+
+@{
+    ViewData["Title"] = "Semesters";
+}
+
+<h1>Semesters</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New Semester</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Academic Year</th>
+            <th>Start</th>
+            <th>End</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+    <tr>
+        <td>@item.Name</td>
+        <td>@item.AcademicYear?.Name</td>
+        <td>@item.StartDate.ToString("yyyy-MM-dd")</td>
+        <td>@item.EndDate.ToString("yyyy-MM-dd")</td>
+        <td>
+            <a asp-action="Details" asp-route-id="@item.SemesterID">Details</a> |
+            <a asp-action="Edit" asp-route-id="@item.SemesterID">Edit</a> |
+            <a asp-action="Delete" asp-route-id="@item.SemesterID">Delete</a>
+        </td>
+    </tr>
+}
+    </tbody>
+</table>
